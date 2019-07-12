@@ -132,5 +132,31 @@ cat3.products.create!({
   price: 2_483.75
 })
 
+# USERS
+
+puts "Re-creating Users ..."
+
+User.destroy_all
+
+User.create(:name => "Poushita Guha", :email => "posh@xyz.com", :password_digest => "123")
+User.create(:name => "Srimanta Bagchi", :email => "srim@xyz.com", :password_digest => "1234")
+
+## REVIEWS
+
+puts "Re-creating Reviews ..."
+
+Review.destroy_all
+
+Review.create(:product_id => 1, :user_id => 2, :description => "Great shirt. Good fit", :rating => 5)
+Review.create(:product_id => 9, :user_id => 1, :description => "Awesome smartwatch", :rating => 5)
+Review.create(:product_id => 5, :user_id => 2, :description => "Useless spy shoes", :rating => 1)
+Review.create(:product_id => 8, :user_id => 1, :description => "Handy slicer", :rating => 4)
+Review.create(:product_id => 10, :user_id => 2, :description => "Comfortable bed", :rating => 4)
+Review.create(:product_id => 10, :user_id => 1, :description => "Good to look at but not good to sleep in", :rating => 2)
+Review.create(:product_id => 2, :user_id => 1, :description => "Pretty pair of pants. Good fit", :rating => 5)
+Review.create(:product_id => 6, :user_id => 2, :description => "Gross human feet shoes", :rating => 1)
+Review.create(:product_id => 11, :user_id => 1, :description => "Electrical chair automatically stops at times", :rating => 2)
+Review.create(:product_id => 4, :user_id => 2, :description => "Socks are okay. Not worth the price", :rating => 3)
+Review.create(:product_id => 3, :user_id => 1, :description => "Hat looks good in pic but not in real life", :rating => 3)
 
 puts "DONE!"
