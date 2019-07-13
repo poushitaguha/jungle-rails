@@ -21,30 +21,26 @@
           <dt>Quantity</dt>
           <dd><%= @product.quantity %></dd>
           <dt>Price</dt>
-          <dd><%= @product.price %></dd>
-
-
-          <div>
-            <%= form_for [@product, @reviews.new] do |f| %>
-                <%= f.label :description %>
-                <%= f.text_field :description %>
-                <%= f.label :rating %>
-                <%= f.select :rating, [ '1', '2', '3', '4', '5' ], :prompt => 'Select One' %>
-                <%= submit_tag "Submit Review" %>
-            <% end %>
-          </div>
-
-          
-          <dt>Reviews</dt>
-          <dd>
-            <% @reviews.each do |review| %>
-            <%= review.description %>
-            <strong>Rating:</strong> <%= review.rating %>
-            <strong>User:</strong> <%= review.user.name %><br>
-            <% end %>
-          </dd>          
+          <dd><%= @product.price %></dd>                   
         </dl>
+
+        <% if current_user %>
+          <%= form_for [@product, @reviews.new] do |f| %>
+              <%= f.label :description %>
+              <%= f.text_field :description %>
+              <%= f.label :rating %>
+              <%= f.select :rating, [ '1', '2', '3', '4', '5' ], :prompt => 'Select One' %>
+              <%= submit_tag "Post Review", class: 'btn btn-primary' %>
+          <% end %>
+        <% end %>
+
+        <h3 class="text-center">Reviews</h3>
+          <% @reviews.reverse.each do |review| %>
+            <%= render 'review', review: review %>
+          <% end %>
+
       </div>
+
     </div>
 
   </article>
