@@ -13,6 +13,7 @@
       </div>
 
       <div class="col-sm-8">
+
         <dl class="dl-horizontal">
           <dt>Name</dt>
           <dd><%= @product.name %></dd>
@@ -37,22 +38,9 @@
 
         <h3 class="text-center">Reviews</h3>
           <% @reviews.reverse.each do |review| %>
-            <dl class="dl-horizontal review-box">
-            <dt>Reviewed By</dt>
-            <dd><%= review.user.name %></dd>
-            <dd style="margin-left: 185px;"><%= review.description %></dd>
-            <dt>Rating</dt>
-            <dd><%= review.rating %>/5</dd>
-
-            <% if current_user and current_user.id === review.user.id %>
-              <dd style="margin-left: 80%;">
-              <%= submit_tag "Delete", class: 'btn btn-danger' %>
-              </dd>
-            <% end %>
-
-            </dl>
+            <%= render 'review', review: review, user: get_user(review.user_id)%>
           <% end %>
-
+          
       </div>
 
     </div>
