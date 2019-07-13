@@ -25,18 +25,32 @@
         </dl>
 
         <% if current_user %>
-          <%= form_for [@product, @reviews.new] do |f| %>
-              <%= f.label :description %>
-              <%= f.text_field :description %>
-              <%= f.label :rating %>
-              <%= f.select :rating, [ '1', '2', '3', '4', '5' ], :prompt => 'Select One' %>
-              <%= submit_tag "Post Review", class: 'btn btn-primary' %>
-          <% end %>
+          <h3 class="text-center">Leave a Review!!</h3>
+            <%= form_for [@product, @reviews.new] do |f| %>
+                <%= f.label :description %>
+                <%= f.text_field :description %>
+                <%= f.label :rating %>
+                <%= f.select :rating, [ '1', '2', '3', '4', '5' ], :prompt => 'Select One' %>
+                <%= submit_tag "Post Review", class: 'btn btn-primary' %>
+            <% end %>
         <% end %>
 
         <h3 class="text-center">Reviews</h3>
           <% @reviews.reverse.each do |review| %>
-            <%= render 'review', review: review %>
+            <dl class="dl-horizontal review-box">
+            <dt>Reviewed By</dt>
+            <dd><%= review.user.name %></dd>
+            <dd style="margin-left: 185px;"><%= review.description %></dd>
+            <dt>Rating</dt>
+            <dd><%= review.rating %>/5</dd>
+
+            <% if current_user and current_user.id === review.user.id %>
+              <dd style="margin-left: 80%;">
+              <%= submit_tag "Delete", class: 'btn btn-danger' %>
+              </dd>
+            <% end %>
+
+            </dl>
           <% end %>
 
       </div>
