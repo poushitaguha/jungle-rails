@@ -26,3 +26,35 @@ More information in their docs: <https://stripe.com/docs/testing#cards>
 * Rails 4.2 [Rails Guide](http://guides.rubyonrails.org/v4.2/)
 * PostgreSQL 9.x
 * Stripe
+
+### Screenshots
+
+Jungle Home Page -
+
+![Jungle Home Page](https://github.com/poushitaguha/jungle-rails/blob/master/docs/jungle-home-page.png "Jungle Home Page")
+
+
+View Reviews without Login -
+
+![View_Reviews_without_Login](https://github.com/poushitaguha/jungle-rails/blob/master/docs/view-reviews-without-login.png "View Reviews without Login")
+
+
+User Register Page -
+
+![Jungle_Register_Page](https://github.com/poushitaguha/jungle-rails/blob/master/docs/register-page.png "Jungle Register Page")
+
+
+User Login Page -
+
+![Jungle_Login_Page](https://github.com/poushitaguha/jungle-rails/blob/master/docs/login-page.png "Jungle Login Page")
+
+
+Logged in User Home Page -
+
+![Logged_in_User_Home_Page](https://github.com/poushitaguha/jungle-rails/blob/master/docs/logged-in-user-home-page.png "Logged in User Home Page")
+
+
+Post/Delete Review Buttons for Logged in User -
+
+![Post_Delete_Review_Options](https://github.com/poushitaguha/jungle-rails/blob/master/docs/post-delete-review-options.png "Post Delete Review Options")
+
