@@ -7,7 +7,7 @@ class OrdersController < ApplicationController
     @line_items = LineItem.where(order_id: @order.id)
   end
 
-  def get_product_info product_id
+  def get_product_info(product_id)
     Product.find_by(id: product_id)
   end
   helper_method :get_product_info  

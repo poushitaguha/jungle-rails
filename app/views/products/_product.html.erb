@@ -8,6 +8,14 @@
   <p class="description">
     <%= product.description %>
   </p>
+
+  <% avg = get_average(product).to_i %>
+  <% if avg > 0 %>
+    <p>Current Rating: <%= avg %>/5</p>
+  <% else %>
+    <p>Current Rating: No Rating Yet</p>
+  <% end %>
+
   <footer class="actions">
     <%= button_to add_item_cart_path(product_id: product.id), class: 'btn btn-primary' , method: :post do %>
       <%= fa_icon "shopping-cart", text: 'Add' %>
