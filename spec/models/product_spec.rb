@@ -1,11 +1,11 @@
 require 'rails_helper'
 
-RSpec.describe Product, type: :model do
+ RSpec.describe Product, type: :model do
 
-  describe 'Validations' do
+   describe 'Validations' do
     # validation tests/examples here
 
-      # Check if name, price, quantity, category are present
+       # Check if name, price, quantity, category are present
       it 'should save to database without errors if all fields are present' do
         @category = Category.create(name: "Test Category")
         @product = Product.new(
@@ -25,7 +25,7 @@ RSpec.describe Product, type: :model do
         expect(@product.errors.full_messages)     
       end  
 
-      # When name isn't present
+       # When name isn't present
       it 'should not save to database if name field is not present' do
         @category = Category.create(name: "Test Category")
         @product = Product.new(
@@ -45,7 +45,7 @@ RSpec.describe Product, type: :model do
         expect(@product.errors.full_messages)      
       end    
 
-      # When price isn't present
+       # When price isn't present
       it 'should not save to database if price field is not present' do
         @category = Category.create(name: "Test Category")
         @product = Product.new(
@@ -65,7 +65,7 @@ RSpec.describe Product, type: :model do
         expect(@product.errors.full_messages)      
       end   
 
-      # When quantity isn't present
+       # When quantity isn't present
       it 'should not save to database if quantity field is not present' do
         @category = Category.create(name: "Test Category")
         @product = Product.new(
@@ -84,8 +84,8 @@ RSpec.describe Product, type: :model do
         # expect(@product).to be_valid    
         expect(@product.errors.full_messages) 
       end   
-        
-      # When category isn't present
+
+       # When category isn't present
       it 'should not save to database if category field is not present' do
         @category = Category.create(name: "Test Category")
         @product = Product.new(
@@ -105,6 +105,6 @@ RSpec.describe Product, type: :model do
         expect(@product.errors.full_messages) 
       end      
 
-  end
+   end
 
-end
+ end
