@@ -2,8 +2,7 @@ require 'rails_helper'
 
  RSpec.describe Product, type: :model do
 
-   describe 'Validations' do
-    # validation tests/examples here
+  describe 'Validations' do
 
        # Check if name, price, quantity, category are present
       it 'should save to database without errors if all fields are present' do
@@ -19,10 +18,7 @@ require 'rails_helper'
           updated_at: Time.now,
           category_id: @category.id
         )
-        @product.save
-        expect(@product).to be_valid
-        # expect(@product).to_not be_valid   
-        expect(@product.errors.full_messages)     
+        expect(@product).to be_valid  
       end  
 
        # When name isn't present
@@ -39,10 +35,7 @@ require 'rails_helper'
           updated_at: Time.now,
           category_id: @category.id
         )
-        @product.save
-        expect(@product).to_not be_valid    
-        # expect(@product).to be_valid
-        expect(@product.errors.full_messages)      
+        expect(@product).to_not be_valid        
       end    
 
        # When price isn't present
@@ -59,10 +52,7 @@ require 'rails_helper'
           updated_at: Time.now,
           category_id: @category.id
         )
-        @product.save
-        expect(@product).to_not be_valid    
-        # expect(@product).to be_valid    
-        expect(@product.errors.full_messages)      
+        expect(@product).to_not be_valid       
       end   
 
        # When quantity isn't present
@@ -79,10 +69,7 @@ require 'rails_helper'
           updated_at: Time.now,
           category_id: @category.id
         )
-        @product.save
         expect(@product).to_not be_valid    
-        # expect(@product).to be_valid    
-        expect(@product.errors.full_messages) 
       end   
 
        # When category isn't present
@@ -99,12 +86,9 @@ require 'rails_helper'
           updated_at: Time.now,
           category_id: nil
         )
-        @product.save
         expect(@product).to_not be_valid    
-        # expect(@product).to be_valid    
-        expect(@product.errors.full_messages) 
-      end      
+      end       
 
    end
 
- end
+  end

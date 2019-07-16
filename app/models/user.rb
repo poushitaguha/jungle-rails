@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
     validates :password_confirmation, presence: true    
     validates :password, :confirmation => true
     validates :email, :uniqueness => { :case_sensitive => false }
-    validates_length_of :password, :minimum => 6
+    validates :password, length: { minimum: 6 }
 
     def self.authenticate_with_credentials(email, password)
         user_email_normalize = email.downcase.strip

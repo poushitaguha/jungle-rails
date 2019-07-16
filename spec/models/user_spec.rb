@@ -2,13 +2,23 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
 
-  it { should validate_presence_of(:name) }
-  it { should validate_presence_of(:email) }
-  it { should validate_presence_of(:password) }
-  it { should validate_presence_of(:password_confirmation) }     
-  it { should validate_uniqueness_of(:email).case_insensitive }
-  it { should have_secure_password }
-  it { should validate_length_of(:password).is_at_least(6) } 
+  describe 'Validations' do
+
+    it { should validate_presence_of(:name) }
+    it { should validate_presence_of(:email) }
+    it { should validate_presence_of(:password) }
+    it { should validate_presence_of(:password_confirmation) }     
+    it { should validate_uniqueness_of(:email).case_insensitive }
+    it { should have_secure_password }
+
+    it { should validate_length_of(:password).is_at_least(6).on(:create) } 
+
+    it "should not be valid when password and password confirmation don't match" do
+      test_user = User.new(name: "ABC", email: 'abc@abc.com', password: "1234567", password_confirmation: "5678123")
+      expect(test_user).to_not be_valid
+    end
+
+  end
 
   describe '.authenticate_with_credentials' do
 
